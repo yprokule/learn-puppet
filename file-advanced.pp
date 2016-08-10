@@ -32,3 +32,10 @@ file {
     ;
 
 }
+
+file { [ '/tmp/dir1', '/tmp/dir2',
+         '/tmp/dir3', '/tmp/dir4',
+         '/tmp/dir5', '/tmp/dir6']:
+    ensure  =>  directory,
+    mode    =>  '1755',
+}
