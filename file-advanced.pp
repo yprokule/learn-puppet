@@ -1,3 +1,7 @@
+#
+# Resource and resource's default
+#
+
 file { '/tmp/crap.txt':
     ensure  =>  file,
     content =>  "/*\n/* Managed by Puppet\n/*",
