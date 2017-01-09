@@ -37,3 +37,14 @@ notify { 'hash variables':
 notify { 'access hash':
     message =>  "Username: ${person['name']} ; Surname: ${person['surname']} ; email : ${person['email']}",
 }
+
+$meta_require = "Notify[post msg]"
+
+notify { 'meta':
+    message =>  'Resource "Notify[meta]" requires "Notify[greeting]"',
+    require =>  $meta_require,
+}
+
+notify { 'post msg':
+    message =>  'This message is declared after the resource "Notify[meta]"',
+}
