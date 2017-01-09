@@ -48,3 +48,9 @@ notify { 'meta':
 notify { 'post msg':
     message =>  'This message is declared after the resource "Notify[meta]"',
 }
+
+$msg_title = 'Message Title'
+
+notify { $msg_title:
+    message =>  $msg,
+}
