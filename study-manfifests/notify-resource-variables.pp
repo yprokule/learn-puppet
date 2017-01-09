@@ -54,3 +54,10 @@ $msg_title = 'Message Title'
 notify { $msg_title:
     message =>  $msg,
 }
+
+$dryrun = true
+
+notify { 'boolean':
+    message => "Using boolean",
+    noop    =>  $dryrun,
+}
