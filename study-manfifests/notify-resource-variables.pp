@@ -23,3 +23,17 @@ notify { 'list variable':
 notify { 'variable from list':
     message =>  "'${array[0]}' variable is defined in a list at index [0]",
 }
+
+$person = {
+    'name'      =>  'John',
+    'surname'   =>  'Doe',
+    'email'     =>  'emailjohndoe@example.com',
+}
+
+notify { 'hash variables':
+    message =>  "The whole dict is: $person",
+}
+
+notify { 'access hash':
+    message =>  "Username: ${person['name']} ; Surname: ${person['surname']} ; email : ${person['email']}",
+}
