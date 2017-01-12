@@ -2,16 +2,6 @@
 # Regular expressions in Puppet
 #
 
-$drink = 'tea'
-
-#if ( $drink =~ /^(?i:)tea/ ) {
-#    notice('WORKS')
-#}
-#
-#if ( '192.168.122.55' =~ /[\d{1,3}\.\d{,3}\.\d{1,}\.\d+]/) {
-#    notice("IP regexp")
-#}
-
 $example = "This is some string with and IP 172.16.1.254 address"
 
 notice("Example: ${example}")
@@ -61,3 +51,18 @@ if ( ' my line with space' =~ /^[\W]/ ){
     notice("Regexp Character class '\W' => 'A non-word character ([^a-zA-Z0-9_])'")
 }
 
+#
+# POSIX bracket experessions
+#
+
+if ( $example !~ /^[[:lower:]]/ ) {
+    notice("POSIX brackets: [[:lower:]] Lowercase alphabetical character")
+}
+
+if ( $example =~ /^[[:upper:]]/ ) {
+    notice("POSIX brackets: [[:upper:]] Uppercase alphabetical")
+}
+
+if ( $example =~ /(?i:)^[[:alnum:]]/ ) {
+    notice("POSIX brackets: [[:alnum:]] Alphabetic and numeric character")
+}
