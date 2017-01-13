@@ -37,3 +37,16 @@ unless ( $role_tmp =~ /(?i:)dev/ ) {
     notice("UNLESS: This block is executed when condition is False")
     notice("UNLESS: manager != dev")
 }
+
+warning("=== CASE statement ===")
+
+$food = 'cheese'
+
+case $food {
+    'olives'    :   { $country = 'Greece'; notice("Welcome to Greece")  }
+    'cheese'    :   { $country = 'Switzerland'; notice("Welcome to Switzerland") }
+    'baguette'  :   { $country = 'France';  notice("Welcome to France") }
+    default     :   { $country = 'EU'; notice("Welcome to Europe") }
+}
+
+notice("Variable: ${country}")
