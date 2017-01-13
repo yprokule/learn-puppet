@@ -2,6 +2,8 @@
 # Conditional Structures
 #
 
+warning(" === IF/ELSIF/ELSE Conditional === ")
+
 $drink_1 = 'coffee'
 $drink_2 = 'tea'
 $drink_3 = 'energyla'
@@ -22,4 +24,16 @@ elsif ( $drink_3 == 'tea' ) {
 }
 else {
     notice("I like soda as well")
+}
+
+warning(" === UNLESS Conditional === ")
+
+$role_manager = 'manager'
+$role_dev     = 'dev'
+
+$role_tmp = "${role_manager}"
+
+unless ( $role_tmp =~ /(?i:)dev/ ) {
+    notice("UNLESS: This block is executed when condition is False")
+    notice("UNLESS: manager != dev")
 }
