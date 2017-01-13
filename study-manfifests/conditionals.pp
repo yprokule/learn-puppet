@@ -50,3 +50,16 @@ case $food {
 }
 
 notice("Variable: ${country}")
+
+warning("=== SELECTOR ===")
+
+$os_release = 'Liberty'
+
+$eos = $os_release ? {
+    'Icehouse'          =>  'Not supported for already 9 months',
+    /(?i:)juno|kilo/    =>  'EOL in about 9 month',
+    /^[Ll]iberty/       =>  'EOL in about 18 month',
+    default             =>  'Not released yet',
+}
+
+notice("OpenStack ${os_release} ${eos}")
