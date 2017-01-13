@@ -63,3 +63,17 @@ $eos = $os_release ? {
 }
 
 notice("OpenStack ${os_release} ${eos}")
+
+#
+# Regexp capturing
+#
+
+$drink = 'whiskey'
+
+case $drink {
+    /(?i:vodka|spiritus)/   :   { $answer = "${1}"; notice("Crazy people drink ${1}") }
+    /(bourbon|whiskey)/     :   { $answer = "${1}"; notice("Strong alcohol ${1}") }
+    default                 :   { $answer = "${1}"; notice("Is this smth alcoholic") }
+}
+
+notice("The answer is: ${answer}")
