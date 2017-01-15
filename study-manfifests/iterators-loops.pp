@@ -1,6 +1,7 @@
 #
 # Iterators and Loops
 #
+warning("=== EACH ===")
 warning("Iterations over the list")
 $array = [ 1, 2, 'three', "${facts[os][family]}", [5, 6] ]
 
@@ -34,3 +35,13 @@ notice("Passing one parameter to lamda")
 $dict.each | $element | {
     notice("Dict.OneParamater. Element[0]: '${element[0]}'   => Element[1]: '${element[1]}'")
 }
+
+warning("=== FILTER ===")
+
+$f_array = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+notice("Initial list: ${f_array}")
+$even_numbers = filter($f_array) | $element | {
+    $element % 2 == 0
+}
+
+notice("All zeros: ${even_numbers}")
