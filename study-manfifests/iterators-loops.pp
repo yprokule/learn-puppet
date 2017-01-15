@@ -60,3 +60,16 @@ $f_upper_consonant = $f_strings.filter | $element | {
 }
 
 notice("Names which start with uppercase and don't end with consonant: ${f_upper_consonant}")
+
+warning("=== MAP ===")
+
+$m_array = [ 2048, 307200, 409600, 5242880, 58720256 ]
+
+$bits      = $m_array.map | $element | { $element * 8 }
+$kilobytes = $m_array.map | $element | { $element / 1024 }
+$megabytes = $m_array.map | $element | { $element / 1048576 }
+
+notice("Bytes: ${m_array}")
+notice("Bits in bytes: ${bits}")
+notice("KiloBytes in bytes: ${kilobytes}")
+notice("MegaBytes in bytes: ${megabytes}")
