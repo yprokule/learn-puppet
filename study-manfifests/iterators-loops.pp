@@ -73,3 +73,10 @@ notice("Bytes: ${m_array}")
 notice("Bits in bytes: ${bits}")
 notice("KiloBytes in bytes: ${kilobytes}")
 notice("MegaBytes in bytes: ${megabytes}")
+
+warning("=== REDUCE ===")
+
+$r_array = [ 1, 3, 5, 7, 9 ]
+
+$r_array_size = $r_array.reduce | $memo, $value | { $memo + $value }
+notice("Sum of all elements in ${r_array} is ${r_array_size}")
