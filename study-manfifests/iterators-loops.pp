@@ -45,3 +45,18 @@ $even_numbers = filter($f_array) | $element | {
 }
 
 notice("All zeros: ${even_numbers}")
+
+$f_strings = ['John', 'chandler', 'Tom', 'joey', 'Bob', 'rachel', 'Monica', 'ros', 'Fibby']
+notice("The Name List: ${f_strings}")
+
+$f_upper_names = $f_strings.filter | $element | {
+    $element =~ /^[[:upper:]]/
+}
+
+notice("Names which start with uppercase: ${f_upper_names}")
+
+$f_upper_consonant = $f_strings.filter | $element | {
+    $element =~ /^[[:upper:]]/ and $element !~ /[b,c,d,f,g,k,m,n,p,q,r,s]$/
+}
+
+notice("Names which start with uppercase and don't end with consonant: ${f_upper_consonant}")
