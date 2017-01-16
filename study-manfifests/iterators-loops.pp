@@ -80,3 +80,30 @@ $r_array = [ 1, 3, 5, 7, 9 ]
 
 $r_array_size = $r_array.reduce | $memo, $value | { $memo + $value }
 notice("Sum of all elements in ${r_array} is ${r_array_size}")
+
+$r_dict = {
+    'person1' => {'name' => 'joe', 'occupation' => 'actor', 'age' => 33},
+    'person2' => {'name' => 'chandler', 'occupatoin' => 'bbva', 'age' => 32 },
+    'person3' => {'name' => 'ross', 'occupatoin' => 'paleontolog', 'age' => 35 },
+}
+
+notice("${r_dict}")
+$r_age = $r_dict.reduce(0) | $memo, $value | {
+    notice("Memo: ${memo} ; Value: ${value}")
+    $memo + $value[1][age]
+}
+
+
+$total_xfs_size = $facts['partitions'].reduce(0) | $memo, $value | {
+    debug("Memo: ${memo}    Value: ${value}")
+    if $value[1]['filesystem'] =~ /(?i:xfs|ext4)/ {
+        notice("Use ${value[1]['filesystem']} of ${value[0]}")
+        $memo + $value[1]['size_bytes']
+    }
+    else {
+        notice("Skip ${value[1]['filesystem']} of ${value[0]}")
+        $memo + 0
+    }
+}
+
+notice("Total size of XFS/EXT4 partitions is ${total_xfs_size} bytes")
