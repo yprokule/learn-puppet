@@ -134,3 +134,18 @@ $s_hash_res_2 = $r_dict.slice(2) | $element, $value | {
     notice("SLICE. Element : ${element}")
     notice("SLICE. Value   : ${value}")
 }
+
+warning("=== WITH ===")
+
+$w_res_int = with( 7, 5, 3 ) | $one, $two, $three | {
+    $one + $two + $three
+}
+
+notice("WITH: ${w_res_int}")
+
+if defined('$one') {
+    notice("VARIABLE 'one' is defined: ${one}")
+}
+else {
+    notice("VARIABLE 'one' defined in lambda's local scope. \$one == 'undef'")
+}
