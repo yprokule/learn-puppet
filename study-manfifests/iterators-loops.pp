@@ -107,3 +107,30 @@ $total_xfs_size = $facts['partitions'].reduce(0) | $memo, $value | {
 }
 
 notice("Total size of XFS/EXT4 partitions is ${total_xfs_size} bytes")
+
+warning("=== SLICE ===")
+
+$s_array_integer = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+
+$s_res = slice($s_array_integer, 2)
+notice("Slice: ${s_res}")
+
+$s_res_1 = $s_array_integer.slice(2) | $element | {
+    notice("Passed element is ${element}")
+}
+
+$s_res_2 = $s_array_integer.slice(3) | $one, $two, $three | {
+    notice("Passed: ${one}, ${two}, ${three}")
+}
+
+$s_hash = $r_dict.slice(2)
+notice("SLICE. Hash: ${s_hash}")
+
+$s_hash_res = $r_dict.slice(1) | $element | {
+    notice("SLICE. Element: ${element}")
+}
+
+$s_hash_res_2 = $r_dict.slice(2) | $element, $value | {
+    notice("SLICE. Element : ${element}")
+    notice("SLICE. Value   : ${value}")
+}
