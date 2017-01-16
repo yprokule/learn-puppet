@@ -149,3 +149,20 @@ if defined('$one') {
 else {
     notice("VARIABLE 'one' defined in lambda's local scope. \$one == 'undef'")
 }
+
+warning("=== MISC ===")
+
+$misc_array_int = [ 'banana', 'apple', 'orange' ]
+
+$misc_res = with( $misc_array_int ) | $element | {
+    $total = $element.reduce(' ') | $memo, $value | {
+        notice("Memo: '${memo}'  : Value: ${value}")
+        "$memo $value"
+    }
+    #$element.each | $new | { notice("Misc. Each: ${new}") }
+    #$total = $element.slice(1) | $new | {
+    #    notice("Misc. Slice: ${new[0]}")
+    #}
+}
+
+notice("Misc. Total: ${misc_res}")
