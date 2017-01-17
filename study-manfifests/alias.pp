@@ -26,6 +26,7 @@ file { "${my_file}":
     content =>  "Some content goes here\n",
     require =>  Notify['pre_notify'],
     alias   =>  "${my_alias}",
+    loglevel    =>  'warning',
 }
 
 notify { 'alias_pre':
