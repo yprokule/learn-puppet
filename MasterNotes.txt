@@ -1,0 +1,10 @@
+List agent's requests:
+    [root@management ~ ]# puppet cert list
+      "apphost1.example.com" (SHA256) C5:46:95:93:24:EF:D0:E0:00:BF:51:34:78:F7:43:E0:ED:C6:84:13:72:83:53:59:04:E3:4F:2A:62:A9:DA:A4
+
+Sign agent's cert
+    [root@management ~ ]# puppet cert sign apphost1.example.com
+    Signing Certificate Request for:
+      "apphost1.example.com" (SHA256) C5:46:95:93:24:EF:D0:E0:00:BF:51:34:78:F7:43:E0:ED:C6:84:13:72:83:53:59:04:E3:4F:2A:62:A9:DA:A4
+    Notice: Signed certificate request for apphost1.example.com
+    Notice: Removing file Puppet::SSL::CertificateRequest apphost1.example.com at '/etc/puppetlabs/puppet/ssl/ca/requests/apphost1.example.com.pem'
