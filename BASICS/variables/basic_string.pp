@@ -16,3 +16,7 @@ notify { 'single_quote_string_1':
 notify { 'single_quote_string_2':
     message =>  'Variable ${msg} is defined but not interpolated',
 }
+
+notify { "double_quoted_string_1":
+    message =>  "Variable \$msg has value '${msg}'",
+}
